@@ -1,5 +1,8 @@
 #!/bin/sh
 
+
+echo Buildpack detected, starting to build
+
 if [ -f $1/gulpfile.js -a -f $1/package.json];
 then
   echo Gulpfile and package.json have been detected, downloading dependencies...  
