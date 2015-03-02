@@ -1,3 +1,10 @@
 #/bin/sh
 
-if [ -f $1/gulpfile.js -a -f $1/package.json]
+if [ -f $1/gulpfile.js -a -f $1/package.json];
+then
+  echo Gulpfile and package.json have been detected, downloading dependencies...  
+  exit 0
+else
+  echo Gulpfile or package.json has not been detected...
+  exit 1
+fi

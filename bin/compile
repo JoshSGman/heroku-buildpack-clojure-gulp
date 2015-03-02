@@ -1,0 +1,40 @@
+#/bin/sh
+
+# Configure directories
+build_dir=$1
+cache_dir=$2
+env_dir=$3
+bp_dir=$(cd $(dirname $0); cd ..; pwd)
+heroku_dir=$build_dir/.heroku
+mkdir -p $heroku_dir/node
+warnings=$(mktemp)
+
+# Load Dependencies
+source common = $bp_dir/lib/common.sh
+source node_build = $bp_dir/lib/node-build.sh
+
+(
+  if [ -f $build_dir/gulpfile.js ]; then
+    
+    # get the env vars
+    if [ -d "$env_dir" ]; then
+      status "Exporting config vars to environment"
+      export_env_dir $env_dir
+    fi
+
+    # Install gulp locally
+    npm install gulp
+    echo "-----> Found gulpfile, running gulp default task"
+    # Run Gulp
+    $build_dir/node_modules/.bin/gulp
+
+    source clojure_build = $bp_dir/lib/clojure-build.sh
+  else
+    echo "-----> No gulpfile found"
+  fi
+)
+
+
+
+
+
