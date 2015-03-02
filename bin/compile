@@ -13,6 +13,45 @@ warnings=$(mktemp)
 source common = $bp_dir/lib/common.sh
 source node_build = $bp_dir/lib/node-build.sh
 
+if [ "$iojs_engine" == "" ]; then
+  warn_node_engine "$node_engine"
+else
+  warn_node_engine "$iojs_engine"
+fi
+warn_node_modules "$modules_source"
+
+####### Vendor in binaries
+
+head "Installing binaries"
+if [ "$iojs_engine" == "" ]; then
+  install_node "$node_engine"
+else
+  install_iojs "$iojs_engine"
+fi
+install_npm
+
+####### Build the project's dependencies
+
+head "Building dependencies"
+cd $build_dir
+build_dependencies
+
+####### Create a Procfile if possible
+
+head "Checking startup method"
+ensure_procfile "$start_method" "$build_dir"
+warn_start "$start_method"
+
+####### Finalize the build
+
+head "Finalizing build"
+write_profile
+write_export
+clean_npm
+clean_cache
+create_cache
+build_succeeded
+
 (
   if [ -f $build_dir/gulpfile.js ]; then
     
