@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Configure directories
 
 build_dir=$1
@@ -11,8 +11,8 @@ mkdir -p $heroku_dir/node
 warnings=$(mktemp)
 
 # Load Dependencies
-source $bp_dir/lib/common
-source $bp_dir/lib/node-build
+source $bp_dir/lib/common.sh
+source $bp_dir/lib/node-build.sh
 
 warn_node_engine "$node_engine"
 warn_node_modules "$modules_source"
