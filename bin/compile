@@ -61,6 +61,7 @@ build_succeeded
     # Run Gulp
     $build_dir/node_modules/.bin/gulp
 
+    echo "Now to build the clojure app..."
     source $bp_dir/lib/clojure-build
   else
     echo "-----> No gulpfile found"
