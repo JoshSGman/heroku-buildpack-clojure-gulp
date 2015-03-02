@@ -5,7 +5,7 @@ echo Buildpack detected, starting to build
 
 if [ -f $1/gulpfile.js -a -f $1/package.json -a -f $1/project.clj ];
 then
-  echo Your clojure/node/gulp app has been detected, downloading dependencies...  
+  echo clojure/gulp  
   exit 0
 else
   echo Gulpfile, package.json, or project.clj is missing...

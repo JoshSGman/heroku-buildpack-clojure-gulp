@@ -10,8 +10,8 @@ mkdir -p $heroku_dir/node
 warnings=$(mktemp)
 
 # Load Dependencies
-source common = $bp_dir/lib/common.sh
-source node_build = $bp_dir/lib/node-build.sh
+source $bp_dir/lib/common.sh
+source $bp_dir/lib/node-build.sh
 
 warn_node_engine "$node_engine"
 warn_node_modules "$modules_source"
@@ -59,7 +59,7 @@ build_succeeded
     # Run Gulp
     $build_dir/node_modules/.bin/gulp
 
-    source clojure_build = $bp_dir/lib/clojure-build.sh
+    source $bp_dir/lib/clojure-build.sh
   else
     echo "-----> No gulpfile found"
   fi
