@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 # Configure directories
 build_dir=$1

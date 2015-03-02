@@ -1,7 +1,4 @@
-#!/usr/bin/env bash
-# bin/compile <build-dir> <cache-dir>
 
-# fail fast
 set -e
 
 # parse args

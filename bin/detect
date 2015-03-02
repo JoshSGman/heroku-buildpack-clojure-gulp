@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 if [ -f $1/gulpfile.js -a -f $1/package.json];
 then
