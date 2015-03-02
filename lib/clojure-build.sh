@@ -77,6 +77,10 @@ if [ "$LEIN_VERSION" = "1.7.1" ]; then
 fi
 
 mkdir -p "$BUILD_DIR/.lein"
+
+echo $LEIN_JAR_CACHE_PATH
+echo $LEIN_JAR_SLUG_PATH
+
 cp "$LEIN_JAR_CACHE_PATH" "$LEIN_JAR_SLUG_PATH"
 
 # install rlwrap binary on lein 1.x
