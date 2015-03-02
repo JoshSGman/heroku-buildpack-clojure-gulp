@@ -1,6 +1,6 @@
 #!/bin/sh
-# bin/detect <build-dir>
 
+echo "Build pack detected, starting to build"
 echo Buildpack detected, starting to build
 
 if [ -f $1/gulpfile.js -a -f $1/package.json];

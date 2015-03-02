@@ -13,21 +13,13 @@ warnings=$(mktemp)
 source common = $bp_dir/lib/common.sh
 source node_build = $bp_dir/lib/node-build.sh
 
-if [ "$iojs_engine" == "" ]; then
-  warn_node_engine "$node_engine"
-else
-  warn_node_engine "$iojs_engine"
-fi
+warn_node_engine "$node_engine"
 warn_node_modules "$modules_source"
 
 ####### Vendor in binaries
 
 head "Installing binaries"
-if [ "$iojs_engine" == "" ]; then
-  install_node "$node_engine"
-else
-  install_iojs "$iojs_engine"
-fi
+install_node "$node_engine"
 install_npm
 
 ####### Build the project's dependencies
