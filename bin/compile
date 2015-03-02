@@ -1,6 +1,6 @@
 #!/bin/sh
-
 # Configure directories
+
 build_dir=$1
 cache_dir=$2
 env_dir=$3
