@@ -10,12 +10,9 @@ heroku_dir=$build_dir/.heroku
 mkdir -p $heroku_dir/node
 warnings=$(mktemp)
 
-echo $bp_dir/lib/common.sh
-echo $bp_di/lib/node-build.sh
-
 # Load Dependencies
-source $bp_dir/lib/common.sh
-source $bp_dir/lib/node-build.sh
+source $bp_dir/lib/common
+source $bp_dir/lib/node-build
 
 warn_node_engine "$node_engine"
 warn_node_modules "$modules_source"
