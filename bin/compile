@@ -14,6 +14,10 @@ warnings=$(mktemp)
 source $bp_dir/lib/common.sh
 source $bp_dir/lib/node-build.sh
 
+head "Reading application state"
+read_current_state
+show_current_state
+
 ####### Vendor in binaries
 
 head "Installing binaries"
@@ -23,6 +27,7 @@ install_npm
 ####### Build the project's dependencies
 
 head "Building dependencies"
+echo $build_dir
 cd $build_dir
 build_dependencies
 
@@ -30,7 +35,6 @@ build_dependencies
 
 head "Checking startup method"
 ensure_procfile "$start_method" "$build_dir"
-warn_start "$start_method"
 
 ####### Finalize the build
 
