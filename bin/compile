@@ -14,9 +14,6 @@ warnings=$(mktemp)
 source $bp_dir/lib/common.sh
 source $bp_dir/lib/node-build.sh
 
-warn_node_engine "$node_engine"
-warn_node_modules "$modules_source"
-
 ####### Vendor in binaries
 
 head "Installing binaries"
