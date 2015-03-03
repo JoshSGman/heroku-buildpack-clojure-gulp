@@ -46,27 +46,26 @@ clean_cache
 create_cache
 build_succeeded
 
-(
-  if [ -f $build_dir/gulpfile.js ]; then
-    
-    # get the env vars
-    if [ -d "$env_dir" ]; then
-      status "Exporting config vars to environment"
-      export_env_dir $env_dir
-    fi
 
-    # Install gulp locally
-    npm install gulp
-    echo "-----> Found gulpfile, running gulp default task"
-    # Run Gulp
-    $build_dir/node_modules/.bin/gulp
-
-    echo "Now to build the clojure app..."
-    source $bp_dir/lib/clojure-build
-  else
-    echo "-----> No gulpfile found"
+if [ -f $build_dir/gulpfile.js ]; then
+  
+  # get the env vars
+  if [ -d "$env_dir" ]; then
+    status "Exporting config vars to environment"
+    export_env_dir $env_dir
   fi
-)
+
+  # Install gulp locally
+  npm install gulp
+  echo "-----> Found gulpfile, running gulp default task"
+  # Run Gulp
+  $build_dir/node_modules/.bin/gulp
+else
+  echo "-----> No gulpfile found"
+fi
+
+echo "Now to build the clojure app..."
+source $bp_dir/lib/clojure-build
 
 
 

@@ -8,6 +8,6 @@ then
   echo clojure/gulp  
   exit 0
 else
-  echo Gulpfile, package.json, or project.clj is missing...
+  echo gulpfile, package.json, or project.clj is missing...
   exit 1
 fi
